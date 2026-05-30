@@ -1,1 +1,30 @@
-
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        Title="WinOpt" Height="450" Width="650" WindowStartupLocation="CenterScreen">
+    <StackPanel>
+        <GroupBox Header="Tweaks" Margin="5">
+            <StackPanel>
+                <CheckBox Name="chkDisableTelemetry" Content="Disable Telemetry" Margin="3"/>
+                <CheckBox Name="chkDisableXbox" Content="Disable Xbox Services" Margin="3"/>
+                <CheckBox Name="chkDisableHibernation" Content="Disable Hibernation" Margin="3"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Opciones" Margin="5">
+            <CheckBox Name="chkAnalyzeOnly" Content="Modo solo análisis" Margin="3"/>
+        </GroupBox>
+        <Button Name="btnRunTweaks" Content="Ejecutar tweaks seleccionados" Margin="5"/>
+        <GroupBox Header="Instalación de aplicaciones" Margin="5">
+            <ListBox Name="lstApps" SelectionMode="Multiple" Height="100"/>
+            <Button Name="btnInstallApps" Content="Instalar seleccionadas" Margin="3"/>
+        </GroupBox>
+        <GroupBox Header="Reparaciones" Margin="5">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btnRepairSFC" Content="SFC" Width="80" Margin="2"/>
+                <Button Name="btnRepairDISM" Content="DISM" Width="80" Margin="2"/>
+                <Button Name="btnRepairWU" Content="Windows Update" Width="100" Margin="2"/>
+                <Button Name="btnRepairNetwork" Content="Red" Width="80" Margin="2"/>
+                <Button Name="btnRepairAll" Content="Todas" Width="80" Margin="2"/>
+            </StackPanel>
+        </GroupBox>
+        <TextBox Name="txtLog" Height="120" IsReadOnly="True" TextWrapping="Wrap" Margin="5"/>
+    </StackPanel>
+</Window>
