@@ -1,1 +1,5 @@
-
+{
+  "7zip": { "winget": "7zip.7zip", "choco": "7zip", "content": "7-Zip" },
+  "firefox": { "winget": "Mozilla.Firefox", "choco": "firefox", "content": "Firefox" },
+  "vscode": { "winget": "Microsoft.VisualStudioCode", "choco": "vscode", "content": "VS Code" }
+}
