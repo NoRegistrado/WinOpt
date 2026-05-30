@@ -1,7 +1,4 @@
-<#
-.SYNOPSIS
-    Compila WinOpt a partir de los módulos en src/
-#>
+# Compile.ps1
 $output = "WinOpt.ps1"
 $modules = @("core.ps1", "tweaks.ps1", "fixes.ps1", "install.ps1", "cli.ps1", "gui.ps1")
 
@@ -16,22 +13,32 @@ $header = @'
 
 $scriptContent = $header + "`r`n`r`n"
 
-# Insertar XAML
+# ==========================================
+# 1. Insertar XAML como here-string
+# ==========================================
 $xamlPath = "src\gui.xaml"
 if (Test-Path $xamlPath) {
     $xamlRaw = Get-Content $xamlPath -Raw
     $scriptContent += "`$xaml = @'`r`n$xamlRaw'@`r`n`r`n"
+} else {
+    Write-Warning "No se encontró src/gui.xaml"
 }
 
+# ==========================================
+# 2. Concatenar módulos
+# ==========================================
 foreach ($module in $modules) {
     $path = "src\$module"
     if (Test-Path $path) {
         $content = Get-Content $path -Raw
         $scriptContent += "#region $module`r`n$content`r`n#endregion`r`n`r`n"
+    } else {
+        Write-Warning "No se encontró $path"
     }
 }
 
-$scriptContent += "Show-WinOptGUI"
-
+# ==========================================
+# 3. Guardar sin BOM (UTF-8)
+# ==========================================
 [System.IO.File]::WriteAllText($output, $scriptContent, [System.Text.UTF8Encoding]::new($false))
 Write-Host "✅ Compilado en $output (UTF-8 sin BOM)" -ForegroundColor Green
