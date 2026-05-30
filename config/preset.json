@@ -1,1 +1,5 @@
-
+{
+  "Standard": ["WPFTweaksTelemetry"],
+  "Gaming": ["WPFTweaksTelemetry", "WPFTweaksXbox", "WPFTweaksDisableHibernation"],
+  "Minimal": ["WPFTweaksTelemetry"]
+}
