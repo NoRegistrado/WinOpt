@@ -1,1 +1,25 @@
-
+{
+  "WPFTweaksTelemetry": {
+    "content": "Disable Telemetry",
+    "category": "Privacy",
+    "registry": [
+      { "path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection", "name": "AllowTelemetry", "value": 0, "type": "DWord" }
+    ],
+    "service": [
+      { "name": "DiagTrack", "startupType": "Disabled" }
+    ]
+  },
+  "WPFTweaksXbox": {
+    "content": "Disable Xbox Services",
+    "category": "Gaming",
+    "service": [
+      { "name": "XblAuthManager", "startupType": "Disabled" },
+      { "name": "XblGameSave", "startupType": "Disabled" }
+    ]
+  },
+  "WPFTweaksDisableHibernation": {
+    "content": "Disable Hibernation",
+    "category": "Performance",
+    "invokeScript": "powercfg /hibernate off"
+  }
+}
