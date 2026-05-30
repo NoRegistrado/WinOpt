@@ -13,9 +13,7 @@ $header = @'
 
 $scriptContent = $header + "`r`n`r`n"
 
-# ==========================================
-# 1. Insertar XAML como here-string
-# ==========================================
+# Insertar XAML como here-string
 $xamlPath = "src\gui.xaml"
 if (Test-Path $xamlPath) {
     $xamlRaw = Get-Content $xamlPath -Raw
@@ -24,21 +22,15 @@ if (Test-Path $xamlPath) {
     Write-Warning "No se encontró src/gui.xaml"
 }
 
-# ==========================================
-# 2. Concatenar módulos
-# ==========================================
 foreach ($module in $modules) {
     $path = "src\$module"
     if (Test-Path $path) {
         $content = Get-Content $path -Raw
         $scriptContent += "#region $module`r`n$content`r`n#endregion`r`n`r`n"
-    } else {
-        Write-Warning "No se encontró $path"
     }
 }
 
-# ==========================================
-# 3. Guardar sin BOM (UTF-8)
-# ==========================================
+$scriptContent += "Show-WinOptGUI"
+
 [System.IO.File]::WriteAllText($output, $scriptContent, [System.Text.UTF8Encoding]::new($false))
 Write-Host "✅ Compilado en $output (UTF-8 sin BOM)" -ForegroundColor Green
