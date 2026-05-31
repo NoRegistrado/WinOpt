@@ -2,7 +2,7 @@
         Title="WinOpt" Height="450" Width="650" WindowStartupLocation="CenterScreen">
     <StackPanel>
         <GroupBox Header="Tweaks" Margin="5">
-            <StackPanel>
+            <StackPanel>   <!-- Este StackPanel envuelve los checkboxes, resolviendo el error del GroupBox -->
                 <CheckBox Name="chkDisableTelemetry" Content="Disable Telemetry" Margin="3"/>
                 <CheckBox Name="chkDisableXbox" Content="Disable Xbox Services" Margin="3"/>
                 <CheckBox Name="chkDisableHibernation" Content="Disable Hibernation" Margin="3"/>
@@ -13,8 +13,10 @@
         </GroupBox>
         <Button Name="btnRunTweaks" Content="Ejecutar tweaks seleccionados" Margin="5"/>
         <GroupBox Header="Instalación de aplicaciones" Margin="5">
-            <ListBox Name="lstApps" SelectionMode="Multiple" Height="100"/>
-            <Button Name="btnInstallApps" Content="Instalar seleccionadas" Margin="3"/>
+            <StackPanel>
+                <ListBox Name="lstApps" SelectionMode="Multiple" Height="100"/>
+                <Button Name="btnInstallApps" Content="Instalar seleccionadas" Margin="3"/>
+            </StackPanel>
         </GroupBox>
         <GroupBox Header="Reparaciones" Margin="5">
             <StackPanel Orientation="Horizontal">
