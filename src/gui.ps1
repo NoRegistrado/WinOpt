@@ -29,7 +29,7 @@ function Show-WinOptGUI {
     }
     $global:sync.WriteLog = $global:sync.GUILog
 
-    # Cargar JSON
+    # Cargar configuración
     $tweaksFile = Join-Path $global:sync.ConfigPath "tweaks.json"
     if (Test-Path $tweaksFile) {
         try { $global:sync.tweaksConfig = Get-Content $tweaksFile -Raw | ConvertFrom-Json } catch { $global:sync.tweaksConfig = @{} }

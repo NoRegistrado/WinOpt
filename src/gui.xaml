@@ -2,7 +2,7 @@
         Title="WinOpt" Height="450" Width="650" WindowStartupLocation="CenterScreen">
     <StackPanel>
         <GroupBox Header="Tweaks" Margin="5">
-            <StackPanel>   <!-- Este StackPanel envuelve los checkboxes, resolviendo el error del GroupBox -->
+            <StackPanel>
                 <CheckBox Name="chkDisableTelemetry" Content="Disable Telemetry" Margin="3"/>
                 <CheckBox Name="chkDisableXbox" Content="Disable Xbox Services" Margin="3"/>
                 <CheckBox Name="chkDisableHibernation" Content="Disable Hibernation" Margin="3"/>

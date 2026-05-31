@@ -1,4 +1,4 @@
-# cli.ps1 – Modo línea de comandos (implementación completa)
+# cli.ps1 – Modo línea de comandos
 if ($Tweaks -or $InstallApps -or $AnalyzeOnly -or $RestoreFromBackup -or $Silent -or $NoRestart -or $Force) {
     Write-Host "WinOpt - Modo CLI" -ForegroundColor Cyan
     Write-Log "Parámetros: Tweaks='$Tweaks', InstallApps='$InstallApps', AnalyzeOnly=$AnalyzeOnly"

@@ -13,7 +13,7 @@ $header = @'
 
 $scriptContent = $header + "`r`n`r`n"
 
-# Insertar XAML como here-string
+# Insertar XAML
 $xamlPath = "src\gui.xaml"
 if (Test-Path $xamlPath) {
     $xamlRaw = Get-Content $xamlPath -Raw
