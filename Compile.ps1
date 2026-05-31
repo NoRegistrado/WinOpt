@@ -1,4 +1,3 @@
-# Compile.ps1
 $output = "WinOpt.ps1"
 $modules = @("core.ps1", "tweaks.ps1", "fixes.ps1", "install.ps1", "cli.ps1", "gui.ps1")
 
@@ -13,11 +12,12 @@ $header = @'
 
 $scriptContent = $header + "`r`n`r`n"
 
-# Insertar XAML
 $xamlPath = "src\gui.xaml"
 if (Test-Path $xamlPath) {
     $xamlRaw = Get-Content $xamlPath -Raw
-    $scriptContent += "`$xaml = @'`r`n$xamlRaw'@`r`n`r`n"
+    # Escapar '@' por si aparecen dentro del XAML
+    $xamlEscaped = $xamlRaw -replace '@', '@@'
+    $scriptContent += "`$xaml = @'`r`n$xamlEscaped'@`r`n`r`n"
 } else {
     Write-Warning "No se encontró src/gui.xaml"
 }
